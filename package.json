@@ -3,12 +3,16 @@
   "version": "5.1.0",
   "private": true,
   "devDependencies": {
+    "@types/react": "^16.8.2",
+    "@types/react-native": "^0.57.34",
     "babel-jest": "23.6.0",
     "fs-extra": "^6.0.1",
     "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.49.2",
+    "react-native-typescript-transformer": "^1.2.11",
     "react-test-renderer": "16.7.0",
-    "replace-in-file": "^3.4.2"
+    "replace-in-file": "^3.4.2",
+    "typescript": "^3.3.3"
   },
   "scripts": {
     "android": "react-native run-android",
