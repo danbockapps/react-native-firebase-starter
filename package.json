@@ -5,6 +5,7 @@
   "devDependencies": {
     "@types/react": "^16.8.2",
     "@types/react-native": "^0.57.34",
+    "@types/react-navigation": "^3.0.1",
     "babel-jest": "23.6.0",
     "fs-extra": "^6.0.1",
     "jest": "23.6.0",
@@ -16,7 +17,7 @@
   },
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios --simulator=\"iPhone X\"",
+    "ios": "react-native run-ios --simulator=\"iPhone 7\"",
     "apk": "cd android && ./gradlew assembleRelease",
     "rename": "node ./bin/rename.js",
     "start": "react-native start",
@@ -27,7 +28,8 @@
   },
   "dependencies": {
     "react": "16.6.3",
-    "react-native": "0.58.0-rc.2",
-    "react-native-firebase": "^5.2.0"
+    "react-native": "^0.58.4",
+    "react-native-firebase": "^5.2.0",
+    "react-navigation": "^3.2.1"
   }
 }
