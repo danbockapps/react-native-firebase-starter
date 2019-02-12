@@ -1,7 +1,8 @@
 import React from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import firebase from 'react-native-firebase';
+import { Button, Headline, TextInput } from 'react-native-paper';
 import { NavigationScreenProp } from 'react-navigation';
-import firebase from 'react-native-firebase'
 
 interface LoginProps {
   navigation: NavigationScreenProp<any, any>
@@ -10,7 +11,7 @@ interface LoginProps {
 interface LoginState {
   email: string;
   password: string
-  errorMessage: string|null
+  errorMessage: string | null
 }
 
 export default class Login extends React.Component<LoginProps, LoginState> {
@@ -28,31 +29,41 @@ export default class Login extends React.Component<LoginProps, LoginState> {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Login</Text>
+        <View style={styles.logo}>
+          <Headline style={{ color: '#aabbff' }}>BeSpree</Headline>
+        </View>
         {this.state.errorMessage &&
           <Text style={{ color: 'red' }}>
             {this.state.errorMessage}
           </Text>}
-        <TextInput
-          style={styles.textInput}
-          autoCapitalize="none"
-          placeholder="Email"
-          onChangeText={email => this.setState({ email })}
-          value={this.state.email}
-        />
-        <TextInput
-          secureTextEntry
-          style={styles.textInput}
-          autoCapitalize="none"
-          placeholder="Password"
-          onChangeText={password => this.setState({ password })}
-          value={this.state.password}
-        />
-        <Button title="Login" onPress={this.handleLogin} />
-        <Button
-          title="Don't have an account? Sign Up"
-          onPress={() => this.props.navigation.navigate('SignUp')}
-        />
+
+        <View style={styles.horizView}>
+          <View style={styles.emptyView} />
+          <View style={styles.vertView}>
+            <TextInput
+              style={styles.textInput}
+              label="Login"
+              onChangeText={email => this.setState({ email })}
+              value={this.state.email}
+            />
+            <TextInput
+              style={styles.textInput}
+              secureTextEntry
+              label="Password"
+              onChangeText={password => this.setState({ password })}
+              value={this.state.password}
+            />
+            <Button mode="contained" onPress={this.handleLogin}>
+              Login
+            </Button>
+          </View>
+          <View style={styles.emptyView} />
+        </View>
+        <View style={styles.bottomLink}>
+          <Button onPress={() => this.props.navigation.navigate('SignUp')}>
+            Don't have an account? Sign Up
+          </Button>
+        </View>
       </View>
     )
   }
@@ -61,14 +72,30 @@ export default class Login extends React.Component<LoginProps, LoginState> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  logo: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  horizView: {
+    flex: 1,
+    flexDirection: 'row'
+  },
+  emptyView: {
+    flex: 1
+  },
+  vertView: {
+    flex: 7,
+    flexDirection: 'column'
   },
   textInput: {
-    height: 40,
-    width: '90%',
-    borderColor: 'gray',
-    borderWidth: 1,
-    marginTop: 8
+    marginBottom: 10,
+  },
+  bottomLink: {
+    flex: 1
   }
 })

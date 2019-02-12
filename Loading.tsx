@@ -10,7 +10,7 @@ interface LoadingProps {
 export default class Loading extends React.Component<LoadingProps> {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      this.props.navigation.navigate(user ? 'Main' : 'SignUp')
+      this.props.navigation.navigate(user ? 'Main' : 'Login')
     })
   }
 
