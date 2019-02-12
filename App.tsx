@@ -1,11 +1,12 @@
+import React from 'react';
 import { createAppContainer, createSwitchNavigator, NavigationContainer } from 'react-navigation';
+import { Provider as PaperProvider } from 'react-native-paper';
 import Loading from './Loading';
 import Login from './Login';
 import Main from './Main';
 import SignUp from './SignUp';
 
-// create our app's navigation stack
-const App: NavigationContainer = createSwitchNavigator(
+const AppContainer: NavigationContainer = createAppContainer(createSwitchNavigator(
   {
     Loading,
     SignUp,
@@ -15,6 +16,14 @@ const App: NavigationContainer = createSwitchNavigator(
   {
     initialRouteName: 'Loading'
   }
-)
+))
 
-export default createAppContainer(App)
+export default class App extends React.Component {
+  render() {
+    return (
+      <PaperProvider>
+        <AppContainer />
+      </PaperProvider>
+    )
+  }
+}

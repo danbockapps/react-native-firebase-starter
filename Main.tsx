@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import firebase, { RNFirebase } from 'react-native-firebase';
+import { Button } from 'react-native-paper';
 
 interface MainProps {
 
@@ -25,6 +26,7 @@ export default class Main extends React.Component<MainProps, MainState> {
         <Text>
           Hi {currentUser && currentUser.email}!
         </Text>
+        <Button mode="contained">Logout</Button>
       </View>
     )
   }
