@@ -17,6 +17,9 @@ const authStyles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  headline: {
+    color: color.beSpreeTeal
+  },
   horizView: {
     flex: 1,
     flexDirection: 'row'
@@ -33,7 +36,7 @@ const authStyles = StyleSheet.create({
   },
   bottomLink: {
     flex: 1
-  }
+  },
 })
 
 export default { color, authStyles }
