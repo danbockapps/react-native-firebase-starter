@@ -1,16 +1,17 @@
 import React from 'react';
+import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { createAppContainer, createSwitchNavigator, NavigationContainer } from 'react-navigation';
-import { Provider as PaperProvider, DefaultTheme } from 'react-native-paper';
-import Loading from './Loading';
-import Login from './Login';
-import Main from './Main';
-import SignUp from './SignUp';
+import Loading from './screens/Loading';
+import Login from './screens/Login';
+import Main from './screens/Main';
+import SignUp from './screens/SignUp';
+import Theme from './styles/Theme'
 
 const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: '#aabbff'
+    primary: Theme.color.beSpreeTeal
   }
 }
 

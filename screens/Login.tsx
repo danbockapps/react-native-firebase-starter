@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import firebase from 'react-native-firebase';
 import { Button, Headline, TextInput } from 'react-native-paper';
 import { NavigationScreenProp } from 'react-navigation';
+import Theme from '../styles/Theme';
 
 interface LoginProps {
   navigation: NavigationScreenProp<any, any>
@@ -28,8 +29,8 @@ export default class Login extends React.Component<LoginProps, LoginState> {
 
   render() {
     return (
-      <View style={styles.container}>
-        <View style={styles.logo}>
+      <View style={Theme.authStyles.container}>
+        <View style={Theme.authStyles.logo}>
           <Headline style={{ color: '#aabbff' }}>BeSpree</Headline>
         </View>
         {this.state.errorMessage &&
@@ -37,17 +38,17 @@ export default class Login extends React.Component<LoginProps, LoginState> {
             {this.state.errorMessage}
           </Text>}
 
-        <View style={styles.horizView}>
-          <View style={styles.emptyView} />
-          <View style={styles.vertView}>
+        <View style={Theme.authStyles.horizView}>
+          <View style={Theme.authStyles.emptyView} />
+          <View style={Theme.authStyles.vertView}>
             <TextInput
-              style={styles.textInput}
+              style={Theme.authStyles.textInput}
               label="Login"
               onChangeText={email => this.setState({ email })}
               value={this.state.email}
             />
             <TextInput
-              style={styles.textInput}
+              style={Theme.authStyles.textInput}
               secureTextEntry
               label="Password"
               onChangeText={password => this.setState({ password })}
@@ -57,9 +58,9 @@ export default class Login extends React.Component<LoginProps, LoginState> {
               Login
             </Button>
           </View>
-          <View style={styles.emptyView} />
+          <View style={Theme.authStyles.emptyView} />
         </View>
-        <View style={styles.bottomLink}>
+        <View style={Theme.authStyles.bottomLink}>
           <Button onPress={() => this.props.navigation.navigate('SignUp')}>
             Don't have an account? Sign Up
           </Button>
@@ -68,34 +69,3 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  logo: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  horizView: {
-    flex: 1,
-    flexDirection: 'row'
-  },
-  emptyView: {
-    flex: 1
-  },
-  vertView: {
-    flex: 7,
-    flexDirection: 'column'
-  },
-  textInput: {
-    marginBottom: 10,
-  },
-  bottomLink: {
-    flex: 1
-  }
-})
