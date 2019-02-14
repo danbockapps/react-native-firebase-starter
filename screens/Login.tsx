@@ -11,7 +11,6 @@ interface LoginProps {
 interface LoginState {
   email: string
   password: string
-  errorMessage: string | null
 }
 
 export default class Login extends React.Component<LoginProps, LoginState> {

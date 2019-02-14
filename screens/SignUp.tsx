@@ -11,7 +11,6 @@ interface SignUpProps {
 interface SignUpState {
   email: string
   password: string
-  errorMessage: string | null
 }
 
 export default class SignUp extends React.Component<SignUpProps, SignUpState> {

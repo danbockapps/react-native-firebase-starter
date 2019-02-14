@@ -15,11 +15,10 @@ interface AuthProps {
 interface AuthState {
   email: string
   password: string
-  errorMessage: string | null
 }
 
 export default class Auth extends React.Component<AuthProps, AuthState> {
-  public state = { email: '', password: '', errorMessage: null }
+  public state = { email: '', password: '' }
 
   public render() {
     return (
