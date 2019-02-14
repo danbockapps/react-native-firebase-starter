@@ -1,8 +1,8 @@
-import React from "react";
-import { View, Text } from "react-native";
-import Theme from "../styles/Theme";
-import { Headline, TextInput, Button } from "react-native-paper";
-import { NavigationScreenProp } from "react-navigation";
+import React from 'react'
+import { Text, View } from 'react-native'
+import { Button, Headline, TextInput } from 'react-native-paper'
+import { NavigationScreenProp } from 'react-navigation'
+import Theme from '../styles/Theme'
 
 interface AuthProps {
   navigation: NavigationScreenProp<any, any>
@@ -19,9 +19,9 @@ interface AuthState {
 }
 
 export default class Auth extends React.Component<AuthProps, AuthState> {
-  state = { email: '', password: '', errorMessage: null }
+  public state = { email: '', password: '', errorMessage: null }
 
-  render() {
+  public render() {
     return (
       <View style={Theme.authStyles.container}>
         <View style={Theme.authStyles.logo}>
@@ -37,18 +37,18 @@ export default class Auth extends React.Component<AuthProps, AuthState> {
           <View style={Theme.authStyles.vertView}>
             <TextInput
               style={Theme.authStyles.textInput}
-              label="Email"
+              label='Email'
               onChangeText={email => this.setState({ email })}
               value={this.state.email}
             />
             <TextInput
               style={Theme.authStyles.textInput}
               secureTextEntry
-              label="Password"
+              label='Password'
               onChangeText={password => this.setState({ password })}
               value={this.state.password}
             />
-            <Button mode="contained" onPress={this.props.onButtonPress}>
+            <Button mode='contained' onPress={this.props.onButtonPress}>
               {this.props.buttonText}
             </Button>
           </View>

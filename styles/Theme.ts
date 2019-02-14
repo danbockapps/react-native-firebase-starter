@@ -1,41 +1,41 @@
 import { StyleSheet } from 'react-native'
 
 const color = {
-  beSpreeTeal: '#009E91',
   beSpreeOrange: '#E94E3E',
+  beSpreeTeal: '#009E91',
 }
 
 const authStyles = StyleSheet.create({
+  bottomLink: {
+    flex: 1,
+  },
   container: {
+    alignItems: 'center',
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center',
   },
-  logo: {
+  emptyView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   headline: {
-    color: color.beSpreeTeal
+    color: color.beSpreeTeal,
   },
   horizView: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
-  emptyView: {
-    flex: 1
-  },
-  vertView: {
-    flex: 7,
-    flexDirection: 'column'
+  logo: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
   },
   textInput: {
     marginBottom: 10,
   },
-  bottomLink: {
-    flex: 1
+  vertView: {
+    flex: 7,
+    flexDirection: 'column',
   },
 })
 
