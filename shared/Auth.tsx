@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Image, View } from 'react-native'
 import { Button, Headline, TextInput } from 'react-native-paper'
 import { NavigationScreenProp } from 'react-navigation'
 import Theme from '../styles/Theme'
@@ -25,7 +25,7 @@ export default class Auth extends React.Component<AuthProps, AuthState> {
     return (
       <View style={Theme.authStyles.container}>
         <View style={Theme.authStyles.logo}>
-          <Headline style={{ color: Theme.authStyles.headline.color }}>BeSpree</Headline>
+          <Image source={require('../assets/LogoForAuthScreens.png')} />
         </View>
 
         <View style={Theme.authStyles.horizView}>
