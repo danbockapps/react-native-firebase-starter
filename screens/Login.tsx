@@ -1,4 +1,5 @@
 import React from 'react'
+import { Alert } from 'react-native'
 import firebase from 'react-native-firebase'
 import { NavigationScreenProp } from 'react-navigation'
 import Auth from '../shared/Auth'
@@ -26,12 +27,11 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     )
   }
 
-  private handleLogin = () => {
-    const { email, password } = this.state
+  private handleLogin = (email: string, password: string) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => this.props.navigation.navigate('Main'))
-      .catch(error => this.setState({ errorMessage: error.message }))
+      .catch(error => Alert.alert('There was an error.', error.message))
   }
 }

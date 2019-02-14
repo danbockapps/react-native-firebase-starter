@@ -7,7 +7,7 @@ import Theme from '../styles/Theme'
 interface AuthProps {
   navigation: NavigationScreenProp<any, any>
   buttonText: string
-  onButtonPress: () => void
+  onButtonPress: (email: string, password: string) => void
   linkText: string
   linkRoute: string
 }
@@ -27,10 +27,6 @@ export default class Auth extends React.Component<AuthProps, AuthState> {
         <View style={Theme.authStyles.logo}>
           <Headline style={{ color: Theme.authStyles.headline.color }}>BeSpree</Headline>
         </View>
-        {this.state.errorMessage &&
-          <Text style={{ color: 'red' }}>
-            {this.state.errorMessage}
-          </Text>}
 
         <View style={Theme.authStyles.horizView}>
           <View style={Theme.authStyles.emptyView} />
@@ -48,12 +44,13 @@ export default class Auth extends React.Component<AuthProps, AuthState> {
               onChangeText={password => this.setState({ password })}
               value={this.state.password}
             />
-            <Button mode='contained' onPress={this.props.onButtonPress}>
+            <Button mode='contained' onPress={() => this.props.onButtonPress(this.state.email, this.state.password)}>
               {this.props.buttonText}
             </Button>
           </View>
           <View style={Theme.authStyles.emptyView} />
         </View>
+
         <View style={Theme.authStyles.bottomLink}>
           <Button onPress={() => this.props.navigation.navigate(this.props.linkRoute)}>
             {this.props.linkText}
