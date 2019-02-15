@@ -4,6 +4,8 @@ import { createAppContainer, createSwitchNavigator, NavigationContainer } from '
 import Loading from './screens/Loading'
 import Login from './screens/Login'
 import Main from './screens/Main'
+import RegisterActivities from './screens/register/RegisterActivities'
+import RegisterGroups from './screens/register/RegisterGroups'
 import SignUp from './screens/SignUp'
 import Theme from './styles/Theme'
 
@@ -20,6 +22,8 @@ const AppContainer: NavigationContainer = createAppContainer(createSwitchNavigat
     Loading,
     Login,
     Main,
+    RegisterActivities,
+    RegisterGroups,
     SignUp,
   },
   {

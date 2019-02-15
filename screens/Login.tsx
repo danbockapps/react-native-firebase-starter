@@ -21,7 +21,7 @@ export default class Login extends React.Component<LoginProps, LoginState> {
         buttonText='Login'
         onButtonPress={this.handleLogin}
         linkText="Don't have an account? Sign up"
-        linkRoute='SignUp'
+        linkRoute='RegisterActivities'
       />
     )
   }
