@@ -32,7 +32,7 @@ export default class Main extends React.Component<MainProps, MainState> {
     )
   }
 
-  private logout() {
+  private logout = () => {
     firebase.auth().signOut().then(
       () => this.props.navigation.navigate('Login'),
     ).catch(

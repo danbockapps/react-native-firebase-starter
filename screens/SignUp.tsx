@@ -1,6 +1,6 @@
 import React from 'react'
 import { Alert } from 'react-native'
-import firebase from 'react-native-firebase'
+import firebase, { RNFirebase } from 'react-native-firebase'
 import { NavigationScreenProp } from 'react-navigation'
 import Auth from '../shared/Auth'
 
@@ -27,10 +27,20 @@ export default class SignUp extends React.Component<SignUpProps, SignUpState> {
   }
 
   private handleSignUp = (email: string, password: string) => {
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(() => this.props.navigation.navigate('Main'))
+    const auth: RNFirebase.auth.Auth = firebase.auth()
+
+    const unsubscribe: () => void = auth.onAuthStateChanged(user => {
+      if (user) {
+        user.sendEmailVerification()
+        Alert.alert('Please check your email for instructions to verify your account.')
+
+        if (unsubscribe) {
+          unsubscribe()
+        }
+      }
+    })
+
+    auth.createUserWithEmailAndPassword(email, password)
       .catch(error => Alert.alert('There was an error.', error.message))
   }
 }

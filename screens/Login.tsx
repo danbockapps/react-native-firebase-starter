@@ -1,6 +1,6 @@
 import React from 'react'
 import { Alert } from 'react-native'
-import firebase from 'react-native-firebase'
+import firebase, { RNFirebase } from 'react-native-firebase'
 import { NavigationScreenProp } from 'react-navigation'
 import Auth from '../shared/Auth'
 
@@ -17,11 +17,11 @@ export default class Login extends React.Component<LoginProps, LoginState> {
   public render() {
     return (
       <Auth
-        navigation = {this.props.navigation}
-        buttonText = 'Login'
-        onButtonPress = {this.handleLogin}
-        linkText = "Don't have an account? Sign up"
-        linkRoute = 'SignUp'
+        navigation={this.props.navigation}
+        buttonText='Login'
+        onButtonPress={this.handleLogin}
+        linkText="Don't have an account? Sign up"
+        linkRoute='SignUp'
       />
     )
   }
@@ -30,7 +30,15 @@ export default class Login extends React.Component<LoginProps, LoginState> {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => this.props.navigation.navigate('Main'))
+      .then(
+        (UserCredential: RNFirebase.UserCredential) => {
+          if (UserCredential.user.emailVerified) {
+            this.props.navigation.navigate('Main')
+          } else {
+            Alert.alert('Email address is not verified.')
+          }
+        },
+      )
       .catch(error => Alert.alert('There was an error.', error.message))
   }
 }

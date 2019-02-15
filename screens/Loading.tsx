@@ -9,8 +9,11 @@ interface LoadingProps {
 
 export default class Loading extends React.Component<LoadingProps> {
   public componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
+    const unsubscribe: () => void = firebase.auth().onAuthStateChanged(user => {
       this.props.navigation.navigate(user ? 'Main' : 'Login')
+      if (unsubscribe) {
+        unsubscribe()
+      }
     })
   }
 
