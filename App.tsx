@@ -7,13 +7,13 @@ import Main from './screens/Main'
 import RegisterActivities from './screens/register/RegisterActivities'
 import RegisterGroups from './screens/register/RegisterGroups'
 import SignUp from './screens/SignUp'
-import Theme from './styles/Theme'
+import { color } from './styles/Theme'
 
 const theme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    primary: Theme.color.beSpreeTeal,
+    primary: color.beSpreeTeal,
   },
 }
 

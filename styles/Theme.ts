@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native'
 
-const color = {
+export const color = {
   beSpreeOrange: '#E94E3E',
   beSpreeTeal: '#009E91',
 }
 
-const authStyles = StyleSheet.create({
+export const authStyles = StyleSheet.create({
   bottomLink: {
     flex: 1,
   },
@@ -38,5 +38,3 @@ const authStyles = StyleSheet.create({
     flexDirection: 'column',
   },
 })
-
-export default { color, authStyles }

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Image, View } from 'react-native'
-import { Button, Headline, TextInput } from 'react-native-paper'
+import { Button, TextInput } from 'react-native-paper'
 import { NavigationScreenProp } from 'react-navigation'
-import Theme from '../styles/Theme'
+import { authStyles } from '../styles/Theme'
 
 interface AuthProps {
   navigation: NavigationScreenProp<any, any>
@@ -22,22 +22,22 @@ export default class Auth extends React.Component<AuthProps, AuthState> {
 
   public render() {
     return (
-      <View style={Theme.authStyles.container}>
-        <View style={Theme.authStyles.logo}>
+      <View style={authStyles.container}>
+        <View style={authStyles.logo}>
           <Image source={require('../assets/LogoForAuthScreens.png')} />
         </View>
 
-        <View style={Theme.authStyles.horizView}>
-          <View style={Theme.authStyles.emptyView} />
-          <View style={Theme.authStyles.vertView}>
+        <View style={authStyles.horizView}>
+          <View style={authStyles.emptyView} />
+          <View style={authStyles.vertView}>
             <TextInput
-              style={Theme.authStyles.textInput}
+              style={authStyles.textInput}
               label='Email'
               onChangeText={email => this.setState({ email })}
               value={this.state.email}
             />
             <TextInput
-              style={Theme.authStyles.textInput}
+              style={authStyles.textInput}
               secureTextEntry
               label='Password'
               onChangeText={password => this.setState({ password })}
@@ -47,10 +47,10 @@ export default class Auth extends React.Component<AuthProps, AuthState> {
               {this.props.buttonText}
             </Button>
           </View>
-          <View style={Theme.authStyles.emptyView} />
+          <View style={authStyles.emptyView} />
         </View>
 
-        <View style={Theme.authStyles.bottomLink}>
+        <View style={authStyles.bottomLink}>
           <Button onPress={() => this.props.navigation.navigate(this.props.linkRoute)}>
             {this.props.linkText}
           </Button>
