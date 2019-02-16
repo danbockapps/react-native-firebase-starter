@@ -15,7 +15,7 @@ export default class TwoColumnList extends React.Component<TwoColumnListProps> {
           {this.props.items.map((prop: string, key: number) => {
             return (
               <Selectable key={key}>
-                <Text>{prop}</Text>
+                {prop}
               </Selectable>
             )
           })}
