@@ -1,9 +1,7 @@
 import React from 'react'
-import { View } from 'react-native'
-import { Button, Headline } from 'react-native-paper'
 import { NavigationScreenProp } from 'react-navigation'
 import groups from '../../data/groups.json'
-import TwoColumnList from '../../shared/TwoColumnList'
+import RegisterTemplate from './RegisterTemplate'
 
 interface RegisterGroupsProps {
   navigation: NavigationScreenProp<any, any>
@@ -12,14 +10,13 @@ interface RegisterGroupsProps {
 export default class RegisterGroups extends React.Component<RegisterGroupsProps> {
   public render() {
     return (
-      <View>
-        <Headline>Groups</Headline>
-        <Button onPress={() => this.props.navigation.navigate('RegisterActivities')}>
-          Go to activities
-        </Button>
-
-        <TwoColumnList items={groups} />
-      </View>
+      <RegisterTemplate
+        headline='Groups'
+        onPrevButtonPress={() => this.props.navigation.navigate('RegisterActivities')}
+        onNextButtonPress={() => this.props.navigation.navigate('SignUp')}
+        description='Help us find your people.'
+        listItems={groups}
+      />
     )
   }
 }

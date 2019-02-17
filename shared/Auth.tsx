@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, View } from 'react-native'
 import { Button, TextInput } from 'react-native-paper'
 import { NavigationScreenProp } from 'react-navigation'
-import { authStyles } from '../styles/Theme'
+import { authStyles, commonStyles } from '../styles/Theme'
 
 interface AuthProps {
   navigation: NavigationScreenProp<any, any>
@@ -27,8 +27,8 @@ export default class Auth extends React.Component<AuthProps, AuthState> {
           <Image source={require('../assets/LogoForAuthScreens.png')} />
         </View>
 
-        <View style={authStyles.horizView}>
-          <View style={authStyles.emptyView} />
+        <View style={commonStyles.horizView}>
+          <View style={commonStyles.flex1} />
           <View style={authStyles.vertView}>
             <TextInput
               style={authStyles.textInput}
@@ -47,7 +47,7 @@ export default class Auth extends React.Component<AuthProps, AuthState> {
               {this.props.buttonText}
             </Button>
           </View>
-          <View style={authStyles.emptyView} />
+          <View style={commonStyles.flex1} />
         </View>
 
         <View style={authStyles.bottomLink}>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper'
-import { createAppContainer, createSwitchNavigator, NavigationContainer } from 'react-navigation'
+import { createAppContainer, createSwitchNavigator, NavigationContainer, SafeAreaView } from 'react-navigation'
 import Loading from './screens/Loading'
 import Login from './screens/Login'
 import Main from './screens/Main'
@@ -34,9 +34,12 @@ const AppContainer: NavigationContainer = createAppContainer(createSwitchNavigat
 export default class App extends React.Component {
   public render() {
     return (
-      <PaperProvider theme={theme}>
-        <AppContainer />
-      </PaperProvider>
+      // SafeAreaView is so the content doesn't overlap the status bar.
+      <SafeAreaView style={{ flex: 1 }}>
+        <PaperProvider theme={theme}>
+          <AppContainer />
+        </PaperProvider>
+      </SafeAreaView>
     )
   }
 }

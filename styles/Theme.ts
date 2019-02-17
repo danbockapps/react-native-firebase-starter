@@ -15,15 +15,8 @@ export const authStyles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
   },
-  emptyView: {
-    flex: 1,
-  },
   headline: {
     color: color.beSpreeTeal,
-  },
-  horizView: {
-    flex: 1,
-    flexDirection: 'row',
   },
   logo: {
     alignItems: 'center',
@@ -36,5 +29,24 @@ export const authStyles = StyleSheet.create({
   vertView: {
     flex: 7,
     flexDirection: 'column',
+  },
+})
+
+export const commonStyles = StyleSheet.create({
+  flex1: {
+    flex: 1,
+  },
+  flex2: {
+    flex: 2,
+  },
+  flex3: {
+    flex: 3,
+  },
+  flex4: {
+    flex: 4,
+  },
+  horizView: {
+    flex: 1,
+    flexDirection: 'row',
   },
 })
